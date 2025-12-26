@@ -1,55 +1,66 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+SYNC IMPACT REPORT:
+Version change: 1.0.1 → 1.0.2
+List of modified principles:
+- Added "RAG Chatbot Principles" section
+Added sections: RAG Chatbot Principles
+Removed sections: None
+Templates requiring updates:
+- .specify/templates/plan-template.md ⚠ pending
+- .specify/templates/spec-template.md ⚠ pending
+- .specify/templates/tasks-template.md ⚠ pending
+- .specify/templates/commands/*.md ⚠ pending
+Follow-up TODOs: None
+-->
+# Physical AI & Humanoid Robotics: Spec-Driven Guide Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### Educational Mission-First
+Every chapter and exercise serves the educational mission of teaching Physical AI & Humanoid Robotics concepts to undergrad/early grad CS & robotics engineers; Content must be pedagogically sound, progressively structured, and aligned with learning objectives; Clear learning outcomes required for each module.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### Spec-Driven Learning
+Every concept and implementation follows spec-driven methodology; Specifications must be written and validated before implementation; Each chapter includes clear requirements, testable outcomes, and verification steps; Red-Green-Refactor learning cycle applied to both code and understanding.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### Reproducible Experiments
+All experiments must include exact environment, datasets, and Docker/firmware builds; Every practical exercise must be reproducible across different hardware setups; Detailed setup instructions, version specifications, and configuration files required; Laboratory exercises must include verification steps and expected outcomes.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### Accessible Content
+Content must be written in clear English with Urdu summaries for broader accessibility; All examples and explanations must be approachable for target audience; Multiple learning modalities supported (text, visual, hands-on); Barrier-free learning experience prioritized.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### Open Source & Licensing
+All content, code examples, and resources released under MIT license; Contributions welcome from academic and industry communities; Transparency in development process; Community-driven improvements and corrections encouraged.
 
-### [PRINCIPLE_6_NAME]
+### Hardware-Software Integration
+Focus on tight integration between physical hardware and AI software systems; Real-world robotics applications emphasized; Both simulation and physical robot implementations required; Understanding of sensor-actuator loops and real-time constraints.
 
+## RAG Chatbot Principles
 
-[PRINCIPLE__DESCRIPTION]
+### Zero Hallucination Rule
+The chatbot must answer ONLY from the book chapters, labs, and code blocks; If information is not in the book, the chatbot must respond with "Not found in this book"; No assumptions or external knowledge allowed; Strict adherence to source material to maintain academic integrity.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### Citation Requirement
+Every answer must include citations (Chapter → Section → URL); Users must be able to trace responses back to original content; Citations enable verification and deeper exploration; Academic rigor maintained through proper attribution.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### Dual Mode Functionality
+Support two operational modes: 1) Full-book question answering for comprehensive queries, 2) Selected-text–only answering for user-highlighted content; Both modes must respect the zero hallucination rule; Mode selection should be intuitive for users.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### Performance Standards
+Fast enough for in-page usage with minimal latency; Optimized for engineering students and researchers' workflow; Responsive interaction without sacrificing accuracy; Efficient retrieval mechanisms to maintain speed.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### Privacy-First Approach
+No training on user data; User queries and interactions not stored or used for model improvement; Academic privacy standards maintained; No personal data collection or processing.
+
+## Additional Educational Requirements
+
+Technology stack requirements: Python, ROS, Gazebo simulation, Docker containers, embedded systems (Arduino/Raspberry Pi); Compliance with academic standards; Deployment in educational environments; Hardware compatibility across different platforms.
+
+## Development Workflow
+
+Code review requirements: Peer review by domain experts; Student usability testing for new content; Testing gates include both automated tests and practical laboratory validation; Deployment approval process includes pedagogical review.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+Constitution supersedes all other practices; All content and code must verify compliance with educational mission and accessibility goals; Complexity must be justified by learning objectives; Amendments require pedagogical review and approval by academic advisory board.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.2 | **Ratified**: 2025-12-26 | **Last Amended**: 2025-12-26

@@ -1,0 +1,261 @@
+# OpenAPI Contract: RAG Chatbot API
+
+openapi: 3.0.0
+info:
+  title: RAG Chatbot API
+  version: 1.0.0
+  description: API for the RAG chatbot integrated with Docusaurus textbook
+
+servers:
+  - url: https://api.example.com
+    description: Production server
+  - url: http://localhost:8000
+    description: Development server
+
+paths:
+  /api/chat:
+    post:
+      summary: Send a message to the RAG chatbot
+      description: Process user query against textbook content and return response with citations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatRequest'
+      responses:
+        '200':
+          description: Successful response from the chatbot
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatResponse'
+        '400':
+          description: Invalid request parameters
+        '500':
+          description: Internal server error
+
+  /api/retrieve:
+    post:
+      summary: Retrieve relevant content from textbook
+      description: Get relevant textbook content based on user query
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RetrieveRequest'
+      responses:
+        '200':
+          description: List of relevant content chunks
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetrieveResponse'
+        '400':
+          description: Invalid request parameters
+        '500':
+          description: Internal server error
+
+  /api/health:
+    get:
+      summary: Health check endpoint
+      description: Check if the API is running and healthy
+      responses:
+        '200':
+          description: API is healthy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+
+components:
+  schemas:
+    ChatRequest:
+      type: object
+      required:
+        - query
+        - mode
+      properties:
+        query:
+          type: string
+          description: The user's question or query
+          example: "What are the principles of Physical AI?"
+        mode:
+          type: string
+          enum: [full_book, selected_text]
+          description: The answering mode to use
+          example: "full_book"
+        selected_text:
+          type: string
+          description: Text selected by user (required for selected_text mode)
+          example: "Physical AI is the integration of artificial intelligence with physical systems..."
+        session_id:
+          type: string
+          description: Optional session identifier
+          example: "session-123"
+
+    ChatResponse:
+      type: object
+      required:
+        - response
+        - citations
+        - sources
+      properties:
+        response:
+          type: string
+          description: The chatbot's response to the query
+          example: "Physical AI is the integration of artificial intelligence with physical systems..."
+        citations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Citation'
+          description: List of citations for the response
+        sources:
+          type: array
+          items:
+            $ref: '#/components/schemas/Source'
+          description: List of sources used in the response
+        session_id:
+          type: string
+          description: Session identifier
+          example: "session-123"
+
+    RetrieveRequest:
+      type: object
+      required:
+        - query
+      properties:
+        query:
+          type: string
+          description: The query to search for in the textbook
+          example: "What are the principles of Physical AI?"
+        mode:
+          type: string
+          enum: [full_book, selected_text]
+          description: The retrieval mode to use
+          example: "full_book"
+        selected_text:
+          type: string
+          description: Text selected by user (for selected_text mode)
+          example: "Physical AI is the integration of artificial intelligence with physical systems..."
+
+    RetrieveResponse:
+      type: object
+      required:
+        - results
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/RetrievedChunk'
+          description: List of relevant content chunks
+        query:
+          type: string
+          description: The original query
+          example: "What are the principles of Physical AI?"
+
+    Citation:
+      type: object
+      required:
+        - chapter
+        - section
+      properties:
+        chapter:
+          type: string
+          description: The chapter where the citation is from
+          example: "Module 1: ROS 2 Nervous System"
+        section:
+          type: string
+          description: The section where the citation is from
+          example: "Introduction to Physical AI"
+        subsection:
+          type: string
+          description: The subsection where the citation is from (optional)
+          example: "Core Principles"
+
+    Source:
+      type: object
+      required:
+        - content_id
+        - text_preview
+        - url
+      properties:
+        content_id:
+          type: string
+          description: Unique identifier for the content chunk
+          example: "content-123"
+        text_preview:
+          type: string
+          description: Short preview of the source text
+          example: "Physical AI is the integration of artificial intelligence with physical systems..."
+        url:
+          type: string
+          description: URL to the specific section in the textbook
+          example: "/docs/module-1-ros/introduction-to-physical-ai"
+        similarity_score:
+          type: number
+          description: Similarity score of the source to the query
+          example: 0.85
+
+    RetrievedChunk:
+      type: object
+      required:
+        - chunk_id
+        - text
+        - metadata
+      properties:
+        chunk_id:
+          type: string
+          description: Unique identifier for the chunk
+          example: "chunk-123"
+        text:
+          type: string
+          description: The content of the retrieved chunk
+          example: "Physical AI is the integration of artificial intelligence with physical systems..."
+        metadata:
+          $ref: '#/components/schemas/ChunkMetadata'
+        similarity_score:
+          type: number
+          description: Similarity score of the chunk to the query
+          example: 0.85
+
+    ChunkMetadata:
+      type: object
+      properties:
+        chapter:
+          type: string
+          description: The chapter of the content
+          example: "Module 1: ROS 2 Nervous System"
+        section:
+          type: string
+          description: The section of the content
+          example: "Introduction to Physical AI"
+        subsection:
+          type: string
+          description: The subsection of the content (optional)
+          example: "Core Principles"
+        source_file:
+          type: string
+          description: Original markdown file path
+          example: "module-1-ros/introduction-to-physical-ai.md"
+        hierarchy_path:
+          type: string
+          description: Full hierarchy path
+          example: "Module 1: ROS 2 Nervous System > Introduction to Physical AI"
+
+    HealthResponse:
+      type: object
+      required:
+        - status
+        - timestamp
+      properties:
+        status:
+          type: string
+          description: Health status of the API
+          example: "healthy"
+        timestamp:
+          type: string
+          format: date-time
+          description: Timestamp of the health check
+          example: "2025-12-26T10:00:00Z"

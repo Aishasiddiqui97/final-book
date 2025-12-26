@@ -1,0 +1,36 @@
+# Virtual environments
+venv/
+.venv/
+env/
+.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Node
+node_modules/
+.npm
+*.log
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+nul
+
+# Build outputs
+book/build/
+book/.docusaurus/
+
+# Secrets (keep .env for template but ignore local overrides)
+.env.local
+*.local

@@ -1,0 +1,1 @@
+"""Placeholder for React components - this is a Python file for now to maintain directory structure."""

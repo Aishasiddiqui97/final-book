@@ -1,0 +1,225 @@
+# API Contract: Physical AI & Humanoid Robotics Book
+
+## Book Content API
+
+### Get Module List
+- **Endpoint**: `GET /api/modules`
+- **Description**: Retrieve list of all modules in the book
+- **Response**:
+  ```
+  {
+    "modules": [
+      {
+        "id": "module-1-ros",
+        "title": "ROS 2 Nervous System",
+        "description": "Introduction to ROS 2 concepts and architecture",
+        "order": 1,
+        "learningObjectives": [
+          "Understand ROS 2 architecture",
+          "Create ROS 2 nodes",
+          "Implement message passing"
+        ],
+        "prerequisites": [
+          "Basic programming knowledge",
+          "Understanding of robotics concepts"
+        ],
+        "duration": 20,
+        "chapterCount": 4
+      }
+    ]
+  }
+  ```
+- **Status Codes**: 200 (success)
+
+### Get Module by ID
+- **Endpoint**: `GET /api/modules/{moduleId}`
+- **Description**: Retrieve details of a specific module
+- **Path Parameters**:
+  - `moduleId`: string (e.g., "module-1-ros")
+- **Response**:
+  ```
+  {
+    "id": "module-1-ros",
+    "title": "ROS 2 Nervous System",
+    "description": "Introduction to ROS 2 concepts and architecture",
+    "order": 1,
+    "chapters": [
+      {
+        "id": "module-1-chapter-1",
+        "title": "Introduction to ROS 2",
+        "summary": "Basic concepts and architecture of ROS 2",
+        "order": 1,
+        "duration": 5
+      }
+    ]
+  }
+  ```
+- **Status Codes**: 200 (success), 404 (module not found)
+
+### Get Chapter Content
+- **Endpoint**: `GET /api/chapters/{chapterId}`
+- **Description**: Retrieve content of a specific chapter
+- **Path Parameters**:
+  - `chapterId`: string (e.g., "module-1-chapter-1")
+- **Query Parameters**:
+  - `language`: string (optional, default: "en", values: "en" | "ur")
+- **Response**:
+  ```
+  {
+    "id": "module-1-chapter-1",
+    "title": "Introduction to ROS 2",
+    "content": "# Introduction to ROS 2\n\nROS 2 (Robot Operating System 2) is ...",
+    "moduleId": "module-1-ros",
+    "order": 1,
+    "learningObjectives": [
+      "Explain ROS 2 architecture",
+      "Identify key components"
+    ],
+    "prerequisites": [
+      "Basic programming knowledge"
+    ],
+    "duration": 5,
+    "codeExamples": [
+      {
+        "id": "example-1",
+        "title": "Simple Publisher Node",
+        "language": "python",
+        "code": "import rclpy\nfrom std_msgs.msg import String\n\n# ROS 2 publisher example\n..."
+      }
+    ],
+    "simulationAssets": [
+      {
+        "id": "simulation-1",
+        "title": "Basic Robot Model",
+        "type": "urdf",
+        "filePath": "/simulations/basic_robot.urdf"
+      }
+    ],
+    "assessments": [
+      {
+        "id": "assessment-1",
+        "type": "quiz",
+        "title": "ROS 2 Concepts Quiz"
+      }
+    ]
+  }
+  ```
+- **Status Codes**: 200 (success), 404 (chapter not found)
+
+### Get Code Examples for Chapter
+- **Endpoint**: `GET /api/chapters/{chapterId}/code-examples`
+- **Description**: Retrieve all code examples for a specific chapter
+- **Path Parameters**:
+  - `chapterId`: string
+- **Response**:
+  ```
+  {
+    "examples": [
+      {
+        "id": "example-1",
+        "title": "Simple Publisher Node",
+        "description": "Basic ROS 2 publisher implementation",
+        "language": "python",
+        "code": "import rclpy\nfrom std_msgs.msg import String\n\n# ROS 2 publisher example\n...",
+        "associatedChapterId": "module-1-chapter-1"
+      }
+    ]
+  }
+  ```
+- **Status Codes**: 200 (success), 404 (chapter not found)
+
+### Get Simulation Assets for Chapter
+- **Endpoint**: `GET /api/chapters/{chapterId}/simulation-assets`
+- **Description**: Retrieve all simulation assets for a specific chapter
+- **Path Parameters**:
+  - `chapterId`: string
+- **Response**:
+  ```
+  {
+    "assets": [
+      {
+        "id": "simulation-1",
+        "title": "Basic Robot Model",
+        "description": "Simple URDF robot model for chapter examples",
+        "type": "urdf",
+        "filePath": "/simulations/basic_robot.urdf",
+        "associatedChapterId": "module-1-chapter-1"
+      }
+    ]
+  }
+  ```
+- **Status Codes**: 200 (success), 404 (chapter not found)
+
+## User Progress API
+
+### Get User Progress
+- **Endpoint**: `GET /api/users/{userId}/progress`
+- **Description**: Retrieve progress information for a specific user
+- **Path Parameters**:
+  - `userId`: string
+- **Response**:
+  ```
+  {
+    "userId": "user-123",
+    "progress": {
+      "modules": {
+        "module-1-ros": {
+          "status": "in_progress",
+          "completedChapters": 2,
+          "totalChapters": 4,
+          "completionPercentage": 50
+        }
+      },
+      "chapters": {
+        "module-1-chapter-1": {
+          "status": "completed",
+          "lastAccessed": "2025-12-26T10:30:00Z",
+          "timeSpent": 3600  // in seconds
+        }
+      }
+    }
+  }
+  ```
+- **Status Codes**: 200 (success), 404 (user not found)
+
+### Update Chapter Progress
+- **Endpoint**: `POST /api/users/{userId}/chapters/{chapterId}/progress`
+- **Description**: Update progress status for a specific chapter
+- **Path Parameters**:
+  - `userId`: string
+  - `chapterId`: string
+- **Request Body**:
+  ```
+  {
+    "status": "completed",
+    "timeSpent": 1800  // in seconds
+  }
+  ```
+- **Response**: 200 (success)
+- **Status Codes**: 200 (success), 400 (invalid status), 404 (user or chapter not found)
+
+## Search API
+
+### Search Content
+- **Endpoint**: `GET /api/search`
+- **Description**: Search across all book content
+- **Query Parameters**:
+  - `q`: string (search query)
+  - `language`: string (optional, default: "en", values: "en" | "ur")
+  - `limit`: integer (optional, default: 10)
+- **Response**:
+  ```
+  {
+    "query": "ROS 2 nodes",
+    "results": [
+      {
+        "id": "module-1-chapter-1",
+        "type": "chapter",
+        "title": "Introduction to ROS 2",
+        "preview": "ROS 2 (Robot Operating System 2) is ...",
+        "relevance": 0.95
+      }
+    ]
+  }
+  ```
+- **Status Codes**: 200 (success)

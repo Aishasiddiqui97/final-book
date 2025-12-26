@@ -1,0 +1,36 @@
+{
+  "name": "physical-ai-humanoid-robotics-textbook",
+  "version": "1.0.0",
+  "description": "A comprehensive textbook on Physical AI and Humanoid Robotics using Docusaurus",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "cd book && npm start",
+    "docs:build": "cd book && npm run build",
+    "docs:deploy": "cd book && npm run deploy",
+    "docs:swizzle": "cd book && npm run swizzle",
+    "docs:write-translations": "cd book && npm run write-translations",
+    "docs:write-heading-ids": "cd book && npm run write-heading-ids",
+    "generate:chapter": "./generate_chapter.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-organization/physical-ai-humanoid-robotics.git"
+  },
+  "keywords": [
+    "docusaurus",
+    "textbook",
+    "robotics",
+    "physical-ai",
+    "humanoid-robotics",
+    "ros2",
+    "gazebo",
+    "nvidia-isaac",
+    "education"
+  ],
+  "author": "Your Organization",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/your-organization/physical-ai-humanoid-robotics/issues"
+  },
+  "homepage": "https://github.com/your-organization/physical-ai-humanoid-robotics#readme"
+}
