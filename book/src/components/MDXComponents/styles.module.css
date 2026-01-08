@@ -1,0 +1,599 @@
+/**
+ * MDX Components Styles
+ * Custom styling for enhanced content components
+ */
+
+/* ============================================
+   KEY CONCEPT
+   ============================================ */
+
+.keyConcept {
+  background: linear-gradient(135deg, #fef3c7 0%, #fef9c3 100%);
+  border: 1px solid #fcd34d;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+[data-theme='dark'] .keyConcept {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(251, 191, 36, 0.1) 100%);
+  border-color: rgba(251, 191, 36, 0.3);
+}
+
+.keyConceptHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.keyConceptIcon {
+  font-size: 1.25rem;
+}
+
+.keyConceptTitle {
+  font-weight: 700;
+  color: #92400e;
+  font-size: 0.9375rem;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+[data-theme='dark'] .keyConceptTitle {
+  color: #fcd34d;
+}
+
+.keyConceptContent {
+  color: #78350f;
+  line-height: 1.7;
+}
+
+[data-theme='dark'] .keyConceptContent {
+  color: #fef3c7;
+}
+
+/* ============================================
+   LEARNING OBJECTIVE
+   ============================================ */
+
+.learningObjective {
+  background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%);
+  border-left: 4px solid #3b82f6;
+  border-radius: 0 0.75rem 0.75rem 0;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+[data-theme='dark'] .learningObjective {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%);
+}
+
+.learningObjectiveHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.learningObjectiveIcon {
+  font-size: 1.25rem;
+}
+
+.learningObjectiveTitle {
+  font-weight: 700;
+  color: #1e40af;
+  font-size: 0.9375rem;
+}
+
+[data-theme='dark'] .learningObjectiveTitle {
+  color: #93c5fd;
+}
+
+.learningObjectiveContent {
+  color: #1e3a8a;
+  line-height: 1.7;
+}
+
+[data-theme='dark'] .learningObjectiveContent {
+  color: #bfdbfe;
+}
+
+.learningObjectiveContent ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.learningObjectiveContent li {
+  margin-bottom: 0.375rem;
+}
+
+/* ============================================
+   MODULE HEADER
+   ============================================ */
+
+.moduleHeader {
+  text-align: center;
+  padding: 3rem 2rem;
+  margin: -1rem -1rem 2rem -1rem;
+  background: linear-gradient(135deg, var(--module-color) 0%, color-mix(in srgb, var(--module-color) 80%, black) 100%);
+  border-radius: 0 0 1.5rem 1.5rem;
+  color: white;
+}
+
+.moduleNumber {
+  display: inline-block;
+  padding: 0.375rem 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.moduleHeader .moduleTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.moduleSubtitle {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* ============================================
+   CODE EXAMPLE
+   ============================================ */
+
+.codeExample {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  margin: 1.5rem 0;
+  overflow: hidden;
+}
+
+[data-theme='dark'] .codeExample {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.codeExampleHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: #e2e8f0;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+[data-theme='dark'] .codeExampleHeader {
+  background: #334155;
+  border-bottom-color: #475569;
+}
+
+.codeExampleIcon {
+  font-size: 1rem;
+}
+
+.codeExampleTitle {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #334155;
+}
+
+[data-theme='dark'] .codeExampleTitle {
+  color: #e2e8f0;
+}
+
+.codeExampleDescription {
+  padding: 0.75rem 1rem;
+  margin: 0;
+  font-size: 0.9375rem;
+  color: #64748b;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+[data-theme='dark'] .codeExampleDescription {
+  color: #94a3b8;
+  border-bottom-color: #334155;
+}
+
+.codeExampleContent pre {
+  margin: 0 !important;
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+/* ============================================
+   DIAGRAM CONTAINER
+   ============================================ */
+
+.diagramContainer {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.diagramContent {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .diagramContent {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.diagramCaption {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: #64748b;
+  font-style: italic;
+}
+
+[data-theme='dark'] .diagramCaption {
+  color: #94a3b8;
+}
+
+/* ============================================
+   STEP BY STEP
+   ============================================ */
+
+.stepByStep {
+  margin: 1.5rem 0;
+}
+
+.step {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 1rem;
+  top: 2.5rem;
+  bottom: -0.5rem;
+  width: 2px;
+  background: #e2e8f0;
+}
+
+[data-theme='dark'] .step:not(:last-child)::after {
+  background: #334155;
+}
+
+.stepNumber {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  color: white;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+}
+
+.stepContent {
+  flex: 1;
+  padding-top: 0.25rem;
+}
+
+.stepTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 0.375rem;
+}
+
+[data-theme='dark'] .stepTitle {
+  color: #f8fafc;
+}
+
+.stepDescription {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+[data-theme='dark'] .stepDescription {
+  color: #94a3b8;
+}
+
+/* ============================================
+   COMPARISON
+   ============================================ */
+
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .comparisonDivider {
+    display: none;
+  }
+}
+
+.comparisonItem {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+[data-theme='dark'] .comparisonItem {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.comparisonHeader {
+  padding: 0.75rem 1rem;
+  background: #f1f5f9;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+[data-theme='dark'] .comparisonHeader {
+  background: #334155;
+  border-bottom-color: #475569;
+}
+
+.comparisonContent {
+  padding: 1rem;
+}
+
+.comparisonDivider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.comparisonDivider span {
+  padding: 0.375rem 0.75rem;
+  background: #e2e8f0;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+[data-theme='dark'] .comparisonDivider span {
+  background: #334155;
+  color: #94a3b8;
+}
+
+/* ============================================
+   PREREQUISITES
+   ============================================ */
+
+.prerequisites {
+  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+  border: 1px solid #86efac;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+[data-theme='dark'] .prerequisites {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(34, 197, 94, 0.05) 100%);
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.prerequisitesHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.prerequisitesIcon {
+  font-size: 1.25rem;
+}
+
+.prerequisitesTitle {
+  font-weight: 700;
+  color: #166534;
+  font-size: 0.9375rem;
+}
+
+[data-theme='dark'] .prerequisitesTitle {
+  color: #86efac;
+}
+
+.prerequisitesList {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #15803d;
+}
+
+[data-theme='dark'] .prerequisitesList {
+  color: #bbf7d0;
+}
+
+.prerequisitesList li {
+  margin-bottom: 0.375rem;
+}
+
+/* ============================================
+   QUIZ
+   ============================================ */
+
+.quiz {
+  background: linear-gradient(135deg, #faf5ff 0%, #f5f3ff 100%);
+  border: 1px solid #c4b5fd;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+[data-theme='dark'] .quiz {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(139, 92, 246, 0.05) 100%);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.quizHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.quizIcon {
+  font-size: 1.25rem;
+}
+
+.quizTitle {
+  font-weight: 700;
+  color: #6d28d9;
+  font-size: 0.9375rem;
+}
+
+[data-theme='dark'] .quizTitle {
+  color: #c4b5fd;
+}
+
+.quizQuestion {
+  font-weight: 600;
+  color: #4c1d95;
+  margin-bottom: 1rem;
+}
+
+[data-theme='dark'] .quizQuestion {
+  color: #e9d5ff;
+}
+
+.quizOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quizOption {
+  padding: 0.75rem 1rem;
+  background: white;
+  border: 2px solid #e9d5ff;
+  border-radius: 0.5rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9375rem;
+}
+
+[data-theme='dark'] .quizOption {
+  background: #1e1b4b;
+  border-color: #4c1d95;
+  color: #e9d5ff;
+}
+
+.quizOption:hover:not(:disabled) {
+  border-color: #8b5cf6;
+  background: #f5f3ff;
+}
+
+[data-theme='dark'] .quizOption:hover:not(:disabled) {
+  background: #312e81;
+}
+
+.quizOption.selected {
+  border-color: #8b5cf6;
+}
+
+.quizOption.correct {
+  background: #dcfce7;
+  border-color: #22c55e;
+  color: #166534;
+}
+
+[data-theme='dark'] .quizOption.correct {
+  background: rgba(34, 197, 94, 0.2);
+  border-color: #22c55e;
+  color: #86efac;
+}
+
+.quizOption.incorrect {
+  background: #fee2e2;
+  border-color: #ef4444;
+  color: #991b1b;
+}
+
+[data-theme='dark'] .quizOption.incorrect {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: #ef4444;
+  color: #fca5a5;
+}
+
+.quizExplanation {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: rgba(139, 92, 246, 0.1);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: #5b21b6;
+}
+
+[data-theme='dark'] .quizExplanation {
+  background: rgba(139, 92, 246, 0.15);
+  color: #ddd6fe;
+}
+
+/* ============================================
+   PROGRESS TRACKER
+   ============================================ */
+
+.progressTracker {
+  margin: 1.5rem 0;
+}
+
+.progressHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #64748b;
+}
+
+[data-theme='dark'] .progressHeader {
+  color: #94a3b8;
+}
+
+.progressBar {
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+[data-theme='dark'] .progressBar {
+  background: #334155;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #0ea5e9 0%, #8b5cf6 100%);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}

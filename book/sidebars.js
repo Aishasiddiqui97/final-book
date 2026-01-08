@@ -1,56 +1,63 @@
 // @ts-check
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
-
 /**
- * Creating a sidebar enables you to:
- - create an ordered group of docs
- - render a sidebar for each doc of that group
- - provide next/previous navigation
-
- The sidebars can be generated from the filesystem, or explicitly defined here.
-
- Create as many sidebars as you want.
-
- @type {import('@docusaurus/plugin-content-docs').SidebarsConfig}
+ * Physical AI & Humanoid Robotics Textbook Sidebar
+ * Organized by modules with clear hierarchy
+ *
+ * @type {import('@docusaurus/plugin-content-docs').SidebarsConfig}
  */
 const sidebars = {
-  // By default, Docusaurus generates a sidebar from the docs folder structure
   tutorialSidebar: [
     {
+      type: 'doc',
+      id: 'intro',
+      label: 'Introduction',
+    },
+    {
       type: 'category',
-      label: 'Modules',
+      label: 'Module 1: ROS 2 Nervous System',
+      collapsed: false,
+      collapsible: true,
+      link: {
+        type: 'doc',
+        id: 'module-1-ros/index',
+      },
       items: [
-        {
-          type: 'category',
-          label: 'Module 1: ROS 2 Nervous System',
-          items: [
-            'module-1-ros/index',
-            'module-1-ros/introduction-to-physical-ai'
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Module 2: Digital Twin (Gazebo/Unity)',
-          items: [
-            'module-2-digital-twin/index'
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Module 3: NVIDIA Isaac AI-Robot Brain',
-          items: [
-            'module-3-isaac-ai/index'
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Module 4: Vision-Language-Action & Humanoid Capstone',
-          items: [
-            'module-4-vision-action/index'
-          ],
-        }
+        'module-1-ros/introduction-to-physical-ai',
       ],
+    },
+    {
+      type: 'category',
+      label: 'Module 2: Digital Twin',
+      collapsed: true,
+      collapsible: true,
+      link: {
+        type: 'doc',
+        id: 'module-2-digital-twin/index',
+      },
+      items: [],
+    },
+    {
+      type: 'category',
+      label: 'Module 3: NVIDIA Isaac AI',
+      collapsed: true,
+      collapsible: true,
+      link: {
+        type: 'doc',
+        id: 'module-3-isaac-ai/index',
+      },
+      items: [],
+    },
+    {
+      type: 'category',
+      label: 'Module 4: VLA & Humanoid',
+      collapsed: true,
+      collapsible: true,
+      link: {
+        type: 'doc',
+        id: 'module-4-vision-action/index',
+      },
+      items: [],
     },
   ],
 };

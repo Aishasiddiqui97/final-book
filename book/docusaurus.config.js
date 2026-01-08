@@ -11,7 +11,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Physical AI & Humanoid Robotics',
-  tagline: 'A comprehensive guide to Physical AI and Humanoid Robotics',
+  tagline: 'From ROS 2 fundamentals to building intelligent humanoid robots',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -31,6 +31,14 @@ const config = {
   projectName: 'physical-ai-humanoid-robotics', // Usually your repo name.
 
   onBrokenLinks: 'throw',
+
+  // Markdown configuration
+  markdown: {
+    mermaid: true,
+  },
+
+  // Themes - add Mermaid support
+  themes: ['@docusaurus/theme-mermaid'],
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -61,6 +69,8 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/your-organization/physical-ai-humanoid-robotics/edit/main/book/',
+          // Show reading time
+          showLastUpdateTime: true,
         },
         blog: {
           showReadingTime: true,
@@ -89,11 +99,46 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
+
+      // Mermaid configuration
+      mermaid: {
+        theme: {
+          light: 'neutral',
+          dark: 'dark',
+        },
+        options: {
+          fontFamily: 'Inter, sans-serif',
+        },
+      },
+
+      // Announcement bar
+      announcementBar: {
+        id: 'star_us',
+        content:
+          '⭐ If you find this textbook helpful, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/Aishasiddiqui97/physical-AI-book-">GitHub</a>!',
+        backgroundColor: '#0ea5e9',
+        textColor: '#fff',
+        isCloseable: true,
+      },
+
+      // Color mode
       colorMode: {
+        defaultMode: 'light',
+        disableSwitch: false,
         respectPrefersColorScheme: true,
       },
+
+      // Docs configuration
+      docs: {
+        sidebar: {
+          hideable: true,
+          autoCollapseCategories: true,
+        },
+      },
+
       navbar: {
-        title: 'Physical AI & Humanoid Robotics',
+        title: 'Physical AI',
+        hideOnScroll: true,
         logo: {
           alt: 'Physical AI & Humanoid Robotics Logo',
           src: 'img/logo.svg',
@@ -111,7 +156,7 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://github.com/your-organization/physical-ai-humanoid-robotics',
+            href: 'https://github.com/Aishasiddiqui97/physical-AI-book-',
             label: 'GitHub',
             position: 'right',
           },
@@ -121,22 +166,31 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Modules',
+            title: 'Learn',
             items: [
               {
-                label: 'ROS 2 Nervous System',
+                label: 'Introduction',
+                to: '/docs/intro',
+              },
+              {
+                label: 'Module 1: ROS 2',
                 to: '/docs/module-1-ros',
               },
               {
-                label: 'Digital Twin (Gazebo/Unity)',
+                label: 'Module 2: Digital Twin',
                 to: '/docs/module-2-digital-twin',
               },
+            ],
+          },
+          {
+            title: 'Modules',
+            items: [
               {
-                label: 'NVIDIA Isaac AI-Robot Brain',
+                label: 'Module 3: Isaac AI',
                 to: '/docs/module-3-isaac-ai',
               },
               {
-                label: 'Vision-Language-Action & Humanoid Capstone',
+                label: 'Module 4: VLA & Humanoid',
                 to: '/docs/module-4-vision-action',
               },
             ],
@@ -145,16 +199,12 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'GitHub',
+                href: 'https://github.com/Aishasiddiqui97/physical-AI-book-',
               },
               {
                 label: 'Discord',
                 href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'X',
-                href: 'https://x.com/docusaurus',
               },
             ],
           },
@@ -162,17 +212,23 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'GitHub',
-                href: 'https://github.com/your-organization/physical-ai-humanoid-robotics',
+                label: 'Blog',
+                to: '/blog',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics Project. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+        additionalLanguages: ['python', 'bash', 'yaml', 'json', 'cpp', 'cmake'],
+      },
+      // Table of Contents
+      tableOfContents: {
+        minHeadingLevel: 2,
+        maxHeadingLevel: 4,
       },
     }),
 };
